@@ -27,14 +27,26 @@
 .App-link {
   color: #61dafb;
 }
+.card {
+  /* width: 83%; */
+  height: 80%;
+}
 
-.item-cards-container{
+.card-img-top{
+  padding: 30px;
+  width: 90% auto;
+  height: 52%;
+  align-items:end;
+}
+
+.item-cards-container {
   display: grid;
-  grid-template-columns:1fr 1fr 1fr;
-  width: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: 20% 25% 25%; */
+  padding: 40px;
+  align-items: center;
   justify-items: center;
-  column-gap: 10px;
-  row-gap: 15px;
+  column-gap: 25px;
 }
 
 @keyframes App-logo-spin {
