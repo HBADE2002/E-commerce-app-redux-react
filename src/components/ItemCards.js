@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+// import Cart from './Cart';
 import { useState, useEffect } from "react";
 
 function ItemCards() {
@@ -14,6 +15,10 @@ function ItemCards() {
   useEffect(() => {
     getProducts();
   }, []);
+  const PassDataToCart = (product) => {
+    // Add the product to the cart state here
+    // Example: setCart([...cart, product]);
+  }
 
   return (
     <>
@@ -28,10 +33,12 @@ function ItemCards() {
               <Card.Text>
                 {product.description ? product.description.slice(0, 90) : ""}
               </Card.Text>
-              <Button variant="primary">Add to Cart</Button>
+              <Card.Text>Price: ${product.price}</Card.Text>
+              <Button variant="primary" onClick = {()=>PassDataToCart(product)}>Add to Cart</Button>
             </Card.Body>
           </Card>
         ))}
+        {/* <Cart props={products}></Cart> */}
       </div>
     </>
   );
