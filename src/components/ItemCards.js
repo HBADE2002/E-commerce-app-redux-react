@@ -16,7 +16,7 @@ function ItemCards() {
     }
     getProducts();
   }, []);
-
+// dispatches the action that send product details to Cart component
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
   }
