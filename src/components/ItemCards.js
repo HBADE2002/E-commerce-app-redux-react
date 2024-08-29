@@ -4,6 +4,8 @@ import { addToCart } from '../features/cartSlice';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
+
+
 function ItemCards() {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
@@ -16,6 +18,10 @@ function ItemCards() {
     }
     getProducts();
   }, []);
+
+// In ItemCards.js, we now use the 
+// useDispatch hook to dispatch the addToCart 
+// action when a product is added to the cart.
 // dispatches the action that send product details to Cart component
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));

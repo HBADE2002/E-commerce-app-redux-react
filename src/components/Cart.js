@@ -5,6 +5,11 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 function Cart() {
+
+  // The Cart component now uses useSelector 
+  // to access the cart items from the Redux store, 
+  // and useDispatch to dispatch the removeFromCart 
+  // action when removing items.
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 

@@ -1,3 +1,8 @@
+// created a new file cartSlice.js to define 
+// our Redux slice for the cart. 
+// This includes actions for adding 
+// and removing items from the cart.
+
 
 import { createSlice } from '@reduxjs/toolkit';
 
