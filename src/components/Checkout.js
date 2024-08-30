@@ -14,7 +14,7 @@ function Checkout() {
         <h3>Order Summary</h3>
         {cartItems.map((item) => (
           <Card key={item.id} className="checkout-item">
-            <Card.Img variant="top" src={item.image} />
+            <Card.Img className=".card-item-top" variant="top" src={item.image} />
             <Card.Title>{item.title}</Card.Title>
             <Card.Text>${item.price.toFixed(2)}</Card.Text>
           </Card>

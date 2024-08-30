@@ -27,6 +27,18 @@
 .App-link {
   color: #61dafb;
 }
+
+.empty-cart-message {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.empty-cart-message p {
+  font-size: 18px;
+  color: #888;
+}
+
+
 .card {
   height: 550px;
 }
