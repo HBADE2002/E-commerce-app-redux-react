@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart } from "../features/cartSlice";
+import { removeFromCart, selectCartItems } from "../features/cartSlice";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
@@ -10,7 +10,7 @@ function Cart() {
   // to access the cart items from the Redux store, 
   // and useDispatch to dispatch the removeFromCart 
   // action when removing items.
-  const cartItems = useSelector((state) => state.cart);
+  const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
 
   const handleRemoveFromCart = (item) => {
