@@ -4,6 +4,10 @@ import { removeFromCart, selectCartItems } from "../features/cartSlice";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
+import { useNavigate } from 'react-router-dom';
+
+
+
 function Cart() {
   // The Cart component now uses useSelector
   // to access the cart items from the Redux store,
@@ -11,6 +15,7 @@ function Cart() {
   // action when removing items.
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleRemoveFromCart = (item) => {
     dispatch(removeFromCart(item));
@@ -18,10 +23,14 @@ function Cart() {
   const handleCardClick = (item) => {
     alert("Card clicked");
   };
+
+  const handleProceedToCheckout = () => {
+    navigate('/checkout');
+  };
   return (
     <>
       <h2>Cart</h2>
-      <div className="item-cards-container">
+      < div className="item-cards-container">
       {cartItems.map((item) => (
           <div className="card-container" onClick={() => handleCardClick(item)}>
             <Card style={{ width: "18rem" }} key={item.id}>
@@ -44,10 +53,14 @@ function Cart() {
             </Card>
           </div>
         ))}
-      </div>
-       <div>
-       <Button variant="success">Proceed To Check-Out</Button>
-       </div>
+        </div>
+
+      {cartItems.length > 0 && (
+        <Button variant="primary" onClick={handleProceedToCheckout}>
+          Proceed to Checkout
+        </Button>
+      )}
+
     </>
   );
 }

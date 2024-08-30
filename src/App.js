@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import ItemCards from "./components/ItemCards";
 import About from "./components/About";
 import Cart from "./components/Cart";
+import Checkout from './components/Checkout';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<ItemCards />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </div>
     </Provider>
