@@ -5,6 +5,8 @@ import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCartItemCount } from "../features/cartSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 function NavBar() {
   const cartItemCount = useSelector(selectCartItemCount);
   return (
@@ -21,7 +23,10 @@ function NavBar() {
             About
           </Nav.Link>
           <Nav.Link as={NavLink} to="/cart">
-            Cart ({cartItemCount})
+            <FontAwesomeIcon icon={faCartShopping} />({cartItemCount})
+          </Nav.Link>
+          <Nav.Link as={NavLink} to="/checkout">
+            Checkout
           </Nav.Link>
         </Nav>
       </Container>

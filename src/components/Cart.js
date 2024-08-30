@@ -5,10 +5,9 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 function Cart() {
-
-  // The Cart component now uses useSelector 
-  // to access the cart items from the Redux store, 
-  // and useDispatch to dispatch the removeFromCart 
+  // The Cart component now uses useSelector
+  // to access the cart items from the Redux store,
+  // and useDispatch to dispatch the removeFromCart
   // action when removing items.
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
@@ -16,30 +15,40 @@ function Cart() {
   const handleRemoveFromCart = (item) => {
     dispatch(removeFromCart(item));
   };
-
+  const handleCardClick = (item) => {
+    alert("Card clicked");
+  };
   return (
-    <div >
-    
+    <>
       <h2>Cart</h2>
       <div className="item-cards-container">
       {cartItems.map((item) => (
-        <Card style={{ width: "18rem" }} key={item.id}>
-          <Card.Img variant="top" src={item.image} />
-          <Card.Body>
-            <Card.Title>{item.title ? item.title.slice(0, 39) : ""}</Card.Title>
-            <Card.Text>
-              {item.description ? item.description.slice(0, 90) : ""}
-            </Card.Text>
-            <Card.Text>Price: ${item.price}</Card.Text>
-          </Card.Body>
-          <Button variant="danger" onClick={() => handleRemoveFromCart(item)}>
-            Remove
-          </Button>
-        </Card>
-      ))}
+          <div className="card-container" onClick={() => handleCardClick(item)}>
+            <Card style={{ width: "18rem" }} key={item.id}>
+              <Card.Img variant="top" src={item.image} />
+              <Card.Body >
+                <Card.Title className="card-title-container">
+                  {item.title ? item.title.slice(0, 39) : ""}
+                </Card.Title>
+                <Card.Text className="card-text-container">
+                  {item.description ? item.description.slice(0, 90) : ""}
+                </Card.Text>
+                <Card.Text>Price: ${item.price}</Card.Text>
+              </Card.Body>
+              <Button
+                variant="danger"
+                onClick={() => handleRemoveFromCart(item)}
+              >
+                Remove
+              </Button>
+            </Card>
+          </div>
+        ))}
       </div>
-      
-    </div>
+       <div>
+       <Button variant="success">Proceed To Check-Out</Button>
+       </div>
+    </>
   );
 }
 
