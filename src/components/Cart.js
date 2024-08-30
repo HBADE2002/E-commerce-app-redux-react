@@ -32,7 +32,6 @@ function Cart() {
             </Card.Text>
             <Card.Text>Price: ${item.price}</Card.Text>
           </Card.Body>
-          {/* <span>{item.title} - ${item.price}</span> */}
           <Button variant="danger" onClick={() => handleRemoveFromCart(item)}>
             Remove
           </Button>
